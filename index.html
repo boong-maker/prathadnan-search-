@@ -74,6 +74,21 @@
   .top-strip a:hover { color: var(--c-gold-2); }
   .top-strip-left { display: flex; gap: 18px; align-items: center; }
   .top-strip-left .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c-gold); }
+  .back-to-site {
+    display: inline-flex; align-items: center; gap: 7px;
+    color: var(--c-gold-2);
+    font-weight: 600; font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(212,168,90,.45);
+    transition: all .18s;
+  }
+  .back-to-site:hover {
+    background: var(--c-gold);
+    color: var(--c-ink);
+    border-color: var(--c-gold);
+  }
+  .back-to-site svg { width: 13px; height: 13px; }
   .top-strip-right { display: flex; gap: 16px; align-items: center; }
   .lang-toggle button {
     padding: 2px 8px; border-radius: 3px; font-size: 12px; transition: background .2s;
@@ -638,11 +653,13 @@
 <!-- ===== Top strip ===== -->
 <div class="top-strip">
   <div class="container">
-    <div class="top-strip-left">
-      <span class="dot"></span>
-      <span>วันที่ <span id="todayDate">—</span></span>
+     <div class="top-strip-left">
+      <a href="https://www.prathadnan.go.th/mainpage" class="back-to-site">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        กลับหน้าหลัก เว็บไซต์ อบต.
+      </a>
       <span class="item-hide">|</span>
-      <span class="item-hide">เวลาทำการ จันทร์–ศุกร์ 08:30–16:30 น.</span>
+      <span class="item-hide">วันที่ <span id="todayDate">—</span></span>
     </div>
     <div class="top-strip-right">
       <a href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 054 718 992</a>
@@ -666,13 +683,13 @@
     </a>
     <nav class="primary">
       <ul>
-        <li><a href="#">หน้าหลัก</a></li>
-        <li><a href="#">เกี่ยวกับ</a></li>
-        <li><a href="#">ข่าวประชาสัมพันธ์</a></li>
-        <li><a href="#">จัดซื้อจัดจ้าง</a></li>
-        <li><a href="#">บริการประชาชน</a></li>
+        <li><a href="https://www.prathadnan.go.th/mainpage">หน้าหลัก</a></li>
+        <li><a href="https://www.prathadnan.go.th/data_7340">เกี่ยวกับ</a></li>
+        <li><a href="https://www.prathadnan.go.th/news_1077">ข่าวประชาสัมพันธ์</a></li>
+        <li><a href="https://www.prathadnan.go.th/newsegp">จัดซื้อจัดจ้าง</a></li>
+        <li><a href="https://www.prathadnan.go.th/eservice">บริการประชาชน</a></li>
         <li><a href="#" class="active">ค้นหา</a></li>
-        <li><a href="#">ติดต่อ</a></li>
+        <li><a href="https://www.prathadnan.go.th/datatop_3028">ติดต่อ</a></li>
       </ul>
     </nav>
     <button class="menu-toggle" aria-label="เมนู">
@@ -686,7 +703,7 @@
   <div class="container">
     <div class="hero-inner">
       <nav class="breadcrumb">
-        <a href="/">หน้าหลัก</a>
+        <a href="https://www.prathadnan.go.th/mainpage">หน้าหลัก</a>
         <span class="sep">›</span>
         <span>ค้นหา</span>
       </nav>
