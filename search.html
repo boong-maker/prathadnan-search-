@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ค้นหา | องค์การบริหารส่วนตำบลประทัดนั้น</title>
+<meta name="description" content="ค้นหาข่าวประชาสัมพันธ์ ประกาศ จัดซื้อจัดจ้าง และเอกสารต่างๆ ของ อบต.ประทัดนั้น">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== Reset & Tokens ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --c-ink:        #0d1f2d;
+    --c-ink-2:      #2b3e4f;
+    --c-muted:      #6b7c8c;
+    --c-line:       #e3e8ee;
+    --c-bg:         #f6f4ee;
+    --c-card:       #ffffff;
+    --c-primary:    #0f3a4d;
+    --c-primary-2:  #1a5972;
+    --c-gold:       #b8893a;
+    --c-gold-2:     #d4a85a;
+    --c-rose:       #a14442;
+    --c-success:    #3d7a4e;
+
+    --r-sm: 6px;
+    --r-md: 12px;
+    --r-lg: 18px;
+
+    --shadow-sm: 0 1px 2px rgba(13,31,45,.06), 0 1px 3px rgba(13,31,45,.04);
+    --shadow-md: 0 4px 14px rgba(13,31,45,.08), 0 1px 3px rgba(13,31,45,.04);
+    --shadow-lg: 0 18px 40px -12px rgba(13,31,45,.18);
+
+    --font-display: 'Prompt', system-ui, sans-serif;
+    --font-body:    'Sarabun', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--c-ink);
+    background:
+      radial-gradient(1200px 600px at 90% -10%, rgba(184,137,58,.08), transparent 60%),
+      radial-gradient(900px 500px at -10% 0%, rgba(15,58,77,.07), transparent 60%),
+      var(--c-bg);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  input, select { font: inherit; color: inherit; }
+  ul { list-style: none; }
+
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== Top Strip ===== */
+  .top-strip {
+    background: var(--c-ink);
+    color: #d4d8de;
+    font-size: 13px;
+    padding: 8px 0;
+  }
+  .top-strip .container {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .top-strip a { transition: color .2s; }
+  .top-strip a:hover { color: var(--c-gold-2); }
+  .top-strip-left { display: flex; gap: 18px; align-items: center; }
+  .top-strip-left .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c-gold); }
+  .top-strip-right { display: flex; gap: 16px; align-items: center; }
+  .lang-toggle button {
+    padding: 2px 8px; border-radius: 3px; font-size: 12px; transition: background .2s;
+  }
+  .lang-toggle button.active { background: var(--c-gold); color: var(--c-ink); font-weight: 600; }
+
+  /* ===== Header ===== */
+  header.site-header {
+    background: var(--c-card);
+    border-bottom: 1px solid var(--c-line);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+    gap: 24px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand-seal {
+    width: 56px; height: 56px;
+    background: linear-gradient(135deg, var(--c-primary), var(--c-primary-2));
+    border-radius: 50%;
+    display: grid; place-items: center;
+    color: var(--c-gold-2);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    box-shadow: inset 0 0 0 2px var(--c-gold), 0 4px 12px rgba(15,58,77,.2);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .brand-seal::after {
+    content:''; position: absolute; inset: 4px;
+    border-radius: 50%;
+    border: 1px dashed rgba(212,168,90,.5);
+  }
+  .brand-text .small {
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--c-muted); font-weight: 500;
+  }
+  .brand-text .big {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--c-primary);
+    line-height: 1.25;
+  }
+  .brand-text .sub { font-size: 12px; color: var(--c-muted); }
+
+  nav.primary ul {
+    display: flex; gap: 6px;
+  }
+  nav.primary a {
+    display: inline-block;
+    padding: 10px 14px;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--c-ink-2);
+    border-radius: var(--r-sm);
+    transition: all .2s;
+    position: relative;
+  }
+  nav.primary a:hover { background: var(--c-bg); color: var(--c-primary); }
+  nav.primary a.active {
+    color: var(--c-primary);
+    background: rgba(15,58,77,.06);
+  }
+  nav.primary a.active::after {
+    content: ''; position: absolute; left: 14px; right: 14px; bottom: 4px;
+    height: 2px; background: var(--c-gold);
+  }
+  .menu-toggle { display: none; }
+
+  /* ===== Hero / Search ===== */
+  .hero {
+    padding: 56px 0 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(15,58,77,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15,58,77,.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; max-width: 820px; margin: 0 auto; text-align: center; }
+  .breadcrumb {
+    font-size: 13px; color: var(--c-muted);
+    display: inline-flex; gap: 6px; align-items: center;
+    margin-bottom: 18px;
+  }
+  .breadcrumb a:hover { color: var(--c-primary); }
+  .breadcrumb .sep { opacity: .5; }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 600;
+    color: var(--c-ink);
+    letter-spacing: -.01em;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .hero h1 .accent { color: var(--c-primary); position: relative; }
+  .hero h1 .accent::after {
+    content:''; position: absolute; left: 0; right: 0; bottom: 4px; height: 8px;
+    background: var(--c-gold-2); opacity: .35; z-index: -1; border-radius: 2px;
+  }
+  .hero p.lead {
+    color: var(--c-muted); font-size: 16px; max-width: 560px;
+    margin: 0 auto 32px;
+  }
+
+  /* Search box */
+  .search-shell {
+    position: relative;
+    background: var(--c-card);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 8px;
+    border: 1px solid var(--c-line);
+  }
+  .search-shell::before {
+    content:''; position: absolute; inset: -2px;
+    border-radius: calc(var(--r-lg) + 2px);
+    background: linear-gradient(135deg, var(--c-gold-2), transparent 40%, var(--c-primary-2));
+    z-index: -1; opacity: .25;
+  }
+  .search-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 6px;
+    align-items: stretch;
+  }
+  .search-input-wrap {
+    position: relative;
+    display: flex; align-items: center;
+  }
+  .search-input-wrap svg.icon-search {
+    position: absolute; left: 18px; width: 20px; height: 20px;
+    color: var(--c-muted);
+    pointer-events: none;
+  }
+  #searchInput {
+    width: 100%;
+    padding: 18px 18px 18px 50px;
+    border: none; outline: none;
+    background: transparent;
+    font-size: 16px;
+    border-radius: var(--r-md);
+  }
+  #searchInput::placeholder { color: #98a3b0; }
+  .search-input-wrap:focus-within svg.icon-search { color: var(--c-primary); }
+
+  .scope-select {
+    border-left: 1px solid var(--c-line);
+    padding: 0 14px;
+    font-size: 14px; color: var(--c-ink-2);
+    background: transparent;
+    outline: none;
+    border-top: none; border-right: none; border-bottom: none;
+    cursor: pointer;
+  }
+  .btn-search {
+    background: var(--c-primary);
+    color: white;
+    padding: 0 28px;
+    border-radius: var(--r-md);
+    font-weight: 600;
+    font-size: 15px;
+    display: flex; align-items: center; gap: 8px;
+    transition: all .2s;
+    box-shadow: 0 6px 14px -4px rgba(15,58,77,.4);
+  }
+  .btn-search:hover { background: var(--c-ink); transform: translateY(-1px); box-shadow: 0 10px 18px -4px rgba(15,58,77,.5); }
+  .btn-search:active { transform: translateY(0); }
+
+  /* Quick chips */
+  .quick-row {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 8px; margin-top: 22px;
+  }
+  .quick-row span.label {
+    font-size: 13px; color: var(--c-muted); padding: 6px 0; margin-right: 4px;
+  }
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--c-ink-2);
+    background: var(--c-card);
+    border: 1px solid var(--c-line);
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .chip:hover { border-color: var(--c-primary); color: var(--c-primary); transform: translateY(-1px); }
+  .chip svg { width: 12px; height: 12px; opacity: .6; }
+
+  /* ===== Main grid ===== */
+  main.results-section {
+    padding: 36px 0 80px;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 36px;
+    align-items: flex-start;
+  }
+
+  /* Sidebar */
+  aside.filters {
+    background: var(--c-card);
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-md);
+    padding: 6px;
+    position: sticky; top: 16px;
+  }
+  .filter-block { padding: 18px 18px 14px; border-bottom: 1px solid var(--c-line); }
+  .filter-block:last-child { border-bottom: none; }
+  .filter-block h3 {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--c-ink);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .filter-block h3::before {
+    content:''; display: block; width: 14px; height: 2px; background: var(--c-gold);
+  }
+  .filter-list label {
+    display: flex; align-items: center; gap: 10px;
+    padding: 7px 0;
+    font-size: 14px;
+    color: var(--c-ink-2);
+    cursor: pointer;
+    transition: color .15s;
+  }
+  .filter-list label:hover { color: var(--c-primary); }
+  .filter-list label .count {
+    margin-left: auto;
+    font-size: 12px; color: var(--c-muted);
+    background: var(--c-bg);
+    padding: 1px 8px;
+    border-radius: 999px;
+  }
+  .filter-list input[type="checkbox"], .filter-list input[type="radio"] {
+    width: 16px; height: 16px;
+    accent-color: var(--c-primary);
+    cursor: pointer;
+  }
+  .date-input-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  }
+  .date-input-row input {
+    padding: 8px 10px;
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-sm);
+    font-size: 13px;
+    width: 100%;
+  }
+  .date-input-row input:focus { outline: 2px solid var(--c-primary-2); outline-offset: -1px; border-color: var(--c-primary); }
+  .reset-btn {
+    width: 100%; padding: 10px; margin-top: 6px;
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-sm);
+    background: transparent;
+    font-size: 13px; color: var(--c-ink-2);
+    transition: all .15s;
+  }
+  .reset-btn:hover { background: var(--c-bg); color: var(--c-rose); border-color: var(--c-rose); }
+
+  /* Results column */
+  .results-col { min-width: 0; }
+  .results-toolbar {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    margin-bottom: 20px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--c-line);
+  }
+  .results-meta {
+    font-size: 14px; color: var(--c-muted);
+  }
+  .results-meta strong {
+    font-weight: 600;
+    color: var(--c-ink);
+    font-family: var(--font-display);
+  }
+  .results-meta .term {
+    color: var(--c-primary);
+    background: rgba(184,137,58,.12);
+    padding: 1px 8px; border-radius: 4px;
+  }
+
+  .toolbar-right { display: flex; gap: 12px; align-items: center; }
+  .sort-select, .view-toggle {
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-sm);
+    padding: 7px 12px;
+    font-size: 13px;
+    background: var(--c-card);
+  }
+  .sort-select { padding-right: 28px; cursor: pointer; }
+  .view-toggle { display: inline-flex; padding: 3px; gap: 0; }
+  .view-toggle button {
+    padding: 5px 10px; border-radius: 4px; color: var(--c-muted);
+    transition: all .15s;
+    display: grid; place-items: center;
+  }
+  .view-toggle button.active { background: var(--c-primary); color: white; }
+  .view-toggle svg { width: 16px; height: 16px; }
+
+  /* Result cards */
+  .result-list { display: flex; flex-direction: column; gap: 14px; }
+  .result-card {
+    background: var(--c-card);
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-md);
+    padding: 22px 24px;
+    transition: all .2s;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;
+  }
+  .result-card:hover {
+    border-color: var(--c-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+  .result-card::before {
+    content:''; position: absolute; left: 0; top: 24px; bottom: 24px; width: 3px;
+    background: var(--c-gold); border-radius: 0 2px 2px 0;
+    opacity: 0; transition: opacity .2s;
+  }
+  .result-card:hover::before { opacity: 1; }
+
+  .result-icon {
+    width: 48px; height: 48px;
+    border-radius: 10px;
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .result-icon svg { width: 22px; height: 22px; }
+
+  /* per-category icon styles */
+  .cat-news       .result-icon { background: rgba(15,58,77,.08);   color: var(--c-primary); }
+  .cat-procure    .result-icon { background: rgba(184,137,58,.12); color: var(--c-gold); }
+  .cat-announce   .result-icon { background: rgba(161,68,66,.10);  color: var(--c-rose); }
+  .cat-activity   .result-icon { background: rgba(61,122,78,.12);  color: var(--c-success); }
+  .cat-document   .result-icon { background: rgba(43,62,79,.10);   color: var(--c-ink-2); }
+  .cat-budget     .result-icon { background: rgba(26,89,114,.10);  color: var(--c-primary-2); }
+
+  .result-body { min-width: 0; }
+  .result-cat {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .cat-news     .result-cat { background: rgba(15,58,77,.08);   color: var(--c-primary); }
+  .cat-procure  .result-cat { background: rgba(184,137,58,.15); color: var(--c-gold); }
+  .cat-announce .result-cat { background: rgba(161,68,66,.10);  color: var(--c-rose); }
+  .cat-activity .result-cat { background: rgba(61,122,78,.12);  color: var(--c-success); }
+  .cat-document .result-cat { background: rgba(43,62,79,.10);   color: var(--c-ink-2); }
+  .cat-budget   .result-cat { background: rgba(26,89,114,.10);  color: var(--c-primary-2); }
+
+  .result-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--c-ink);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .result-title a { transition: color .15s; }
+  .result-title a:hover { color: var(--c-primary); }
+  mark.hl {
+    background: linear-gradient(transparent 60%, rgba(212,168,90,.6) 60%);
+    color: inherit; font-weight: 600;
+    padding: 0 1px;
+  }
+  .result-excerpt {
+    font-size: 14.5px;
+    color: var(--c-ink-2);
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .result-meta {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    font-size: 12.5px; color: var(--c-muted);
+  }
+  .result-meta span { display: inline-flex; align-items: center; gap: 5px; }
+  .result-meta svg { width: 13px; height: 13px; opacity: .7; }
+  .result-actions { flex-shrink: 0; }
+  .result-actions .icon-btn {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    color: var(--c-muted);
+    transition: all .15s;
+  }
+  .result-actions .icon-btn:hover { background: var(--c-bg); color: var(--c-primary); }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--c-card);
+    border: 1px dashed var(--c-line);
+    border-radius: var(--r-md);
+  }
+  .empty-state .ico {
+    width: 64px; height: 64px; border-radius: 50%;
+    margin: 0 auto 16px;
+    background: var(--c-bg);
+    display: grid; place-items: center;
+    color: var(--c-muted);
+  }
+  .empty-state .ico svg { width: 28px; height: 28px; }
+  .empty-state h3 {
+    font-family: var(--font-display); font-size: 19px; font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .empty-state p { color: var(--c-muted); margin-bottom: 16px; }
+  .empty-state .clear-btn {
+    background: var(--c-primary); color: white;
+    padding: 10px 22px; border-radius: var(--r-sm);
+    font-size: 14px; font-weight: 500;
+    transition: background .15s;
+  }
+  .empty-state .clear-btn:hover { background: var(--c-ink); }
+
+  /* Pagination */
+  .pagination {
+    display: flex; justify-content: center; align-items: center;
+    gap: 4px;
+    margin-top: 36px; flex-wrap: wrap;
+  }
+  .pagination button {
+    min-width: 38px; height: 38px;
+    border-radius: var(--r-sm);
+    font-size: 14px;
+    color: var(--c-ink-2);
+    border: 1px solid transparent;
+    transition: all .15s;
+    padding: 0 12px;
+  }
+  .pagination button:hover:not(.active):not(:disabled) {
+    background: var(--c-card); border-color: var(--c-line);
+  }
+  .pagination button.active {
+    background: var(--c-primary); color: white; font-weight: 600;
+  }
+  .pagination button:disabled {
+    color: var(--c-muted); opacity: .4; cursor: not-allowed;
+  }
+  .pagination .ellipsis { padding: 0 6px; color: var(--c-muted); }
+
+  /* ===== Footer ===== */
+  footer.site-footer {
+    background: var(--c-ink);
+    color: #c4cdd5;
+    padding: 48px 0 24px;
+    margin-top: 40px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 36px;
+    margin-bottom: 36px;
+  }
+  .footer-grid h4 {
+    font-family: var(--font-display);
+    font-weight: 600; font-size: 14px;
+    color: white;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .footer-grid h4::after {
+    content:''; display: block; width: 24px; height: 2px;
+    background: var(--c-gold); margin-top: 8px;
+  }
+  .footer-grid li { padding: 4px 0; font-size: 13.5px; }
+  .footer-grid a:hover { color: var(--c-gold-2); }
+  .footer-about p { font-size: 13.5px; line-height: 1.7; opacity: .85; max-width: 360px; }
+  .footer-about .brand { margin-bottom: 12px; }
+  .footer-about .brand-text .big { color: white; font-size: 17px; }
+  .footer-about .brand-text .small { color: var(--c-gold-2); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 20px;
+    font-size: 12.5px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    color: #8b97a3;
+  }
+
+  /* ===== Animations ===== */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .result-card { animation: slideUp .35s ease-out backwards; }
+  .result-card:nth-child(1) { animation-delay: .04s; }
+  .result-card:nth-child(2) { animation-delay: .08s; }
+  .result-card:nth-child(3) { animation-delay: .12s; }
+  .result-card:nth-child(4) { animation-delay: .16s; }
+  .result-card:nth-child(5) { animation-delay: .20s; }
+  .result-card:nth-child(6) { animation-delay: .24s; }
+  .result-card:nth-child(7) { animation-delay: .28s; }
+  .result-card:nth-child(8) { animation-delay: .32s; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 980px) {
+    .layout { grid-template-columns: 1fr; }
+    aside.filters { position: static; }
+    nav.primary { display: none; }
+    .menu-toggle {
+      display: grid; place-items: center;
+      width: 42px; height: 42px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--c-line);
+      color: var(--c-ink);
+    }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 36px 0 16px; }
+    .search-row { grid-template-columns: 1fr; }
+    .scope-select { border-left: none; border-top: 1px solid var(--c-line); padding: 12px 14px; }
+    .btn-search { padding: 14px; justify-content: center; }
+    .result-card { grid-template-columns: 1fr; padding: 18px; }
+    .result-icon { width: 40px; height: 40px; }
+    .top-strip-left .item-hide { display: none; }
+    .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    nav.primary { display: none; }
+  }
+
+  /* keyboard focus visibility */
+  :focus-visible { outline: 2px solid var(--c-primary-2); outline-offset: 2px; border-radius: 3px; }
+</style>
+</head>
+
+<body>
+
+<!-- ===== Top strip ===== -->
+<div class="top-strip">
+  <div class="container">
+    <div class="top-strip-left">
+      <span class="dot"></span>
+      <span>วันที่ <span id="todayDate">—</span></span>
+      <span class="item-hide">|</span>
+      <span class="item-hide">เวลาทำการ จันทร์–ศุกร์ 08:30–16:30 น.</span>
+    </div>
+    <div class="top-strip-right">
+      <a href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 0-2123-4567</a>
+      <span class="lang-toggle">
+        <button class="active">TH</button>
+        <button>EN</button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <div class="brand-seal">ปท</div>
+      <div class="brand-text">
+        <div class="small">Prathadnan Subdistrict</div>
+        <div class="big">องค์การบริหารส่วนตำบลประทัดนั้น</div>
+        <div class="sub">อำเภอ — จังหวัด —</div>
+      </div>
+    </a>
+    <nav class="primary">
+      <ul>
+        <li><a href="#">หน้าหลัก</a></li>
+        <li><a href="#">เกี่ยวกับ</a></li>
+        <li><a href="#">ข่าวประชาสัมพันธ์</a></li>
+        <li><a href="#">จัดซื้อจัดจ้าง</a></li>
+        <li><a href="#">บริการประชาชน</a></li>
+        <li><a href="#" class="active">ค้นหา</a></li>
+        <li><a href="#">ติดต่อ</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" aria-label="เมนู">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ===== Hero with Search ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <nav class="breadcrumb">
+        <a href="/">หน้าหลัก</a>
+        <span class="sep">›</span>
+        <span>ค้นหา</span>
+      </nav>
+      <h1>ค้นหาทุกข้อมูลใน <span class="accent">อบต.ประทัดนั้น</span></h1>
+      <p class="lead">ค้นหาข่าวสาร ประกาศ จัดซื้อจัดจ้าง กิจกรรม เอกสาร และข้อมูลที่เป็นประโยชน์ทั้งหมดของหน่วยงานในที่เดียว</p>
+
+      <form class="search-shell" id="searchForm" autocomplete="off">
+        <div class="search-row">
+          <div class="search-input-wrap">
+            <svg class="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="searchInput" placeholder="พิมพ์คำค้น เช่น “จัดซื้อจัดจ้าง 2568” หรือ “เบี้ยยังชีพ”" />
+          </div>
+          <select class="scope-select" id="scopeSelect" aria-label="ขอบเขตการค้นหา">
+            <option value="all">ทุกข้อมูล</option>
+            <option value="news">ข่าวสารเท่านั้น</option>
+            <option value="document">เอกสารเท่านั้น</option>
+            <option value="procure">จัดซื้อจัดจ้าง</option>
+          </select>
+          <button type="submit" class="btn-search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            ค้นหา
+          </button>
+        </div>
+      </form>
+
+      <div class="quick-row">
+        <span class="label">คำค้นยอดนิยม:</span>
+        <button class="chip" data-quick="เบี้ยยังชีพผู้สูงอายุ">เบี้ยยังชีพผู้สูงอายุ</button>
+        <button class="chip" data-quick="จัดซื้อจัดจ้าง">จัดซื้อจัดจ้าง</button>
+        <button class="chip" data-quick="งบประมาณ 2568">งบประมาณ 2568</button>
+        <button class="chip" data-quick="ภาษีที่ดิน">ภาษีที่ดิน</button>
+        <button class="chip" data-quick="ITA">ITA</button>
+        <button class="chip" data-quick="แผนพัฒนาท้องถิ่น">แผนพัฒนาท้องถิ่น</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Results ===== -->
+<main class="results-section">
+  <div class="container">
+    <div class="layout">
+
+      <!-- Sidebar Filters -->
+      <aside class="filters" aria-label="ตัวกรองผลลัพธ์">
+        <div class="filter-block">
+          <h3>หมวดหมู่</h3>
+          <ul class="filter-list" id="categoryFilter">
+            <!-- injected by JS -->
+          </ul>
+        </div>
+
+        <div class="filter-block">
+          <h3>ช่วงวันที่</h3>
+          <ul class="filter-list" id="dateRangeFilter">
+            <li><label><input type="radio" name="daterange" value="any" checked> ทุกช่วงเวลา</label></li>
+            <li><label><input type="radio" name="daterange" value="7"> 7 วันที่ผ่านมา</label></li>
+            <li><label><input type="radio" name="daterange" value="30"> 30 วันที่ผ่านมา</label></li>
+            <li><label><input type="radio" name="daterange" value="365"> 1 ปีที่ผ่านมา</label></li>
+            <li><label><input type="radio" name="daterange" value="custom"> กำหนดเอง</label></li>
+          </ul>
+          <div class="date-input-row" id="customDateRow" style="display:none; margin-top:8px;">
+            <input type="date" id="dateFrom" aria-label="ตั้งแต่">
+            <input type="date" id="dateTo" aria-label="ถึง">
+          </div>
+        </div>
+
+        <div class="filter-block">
+          <h3>ประเภทไฟล์</h3>
+          <ul class="filter-list" id="filetypeFilter">
+            <li><label><input type="checkbox" value="page"> หน้าเว็บ <span class="count">42</span></label></li>
+            <li><label><input type="checkbox" value="pdf"> PDF <span class="count">128</span></label></li>
+            <li><label><input type="checkbox" value="doc"> Word/Excel <span class="count">24</span></label></li>
+            <li><label><input type="checkbox" value="image"> รูปภาพ <span class="count">9</span></label></li>
+          </ul>
+        </div>
+
+        <div class="filter-block">
+          <button class="reset-btn" id="resetBtn">
+            ↺ ล้างตัวกรองทั้งหมด
+          </button>
+        </div>
+      </aside>
+
+      <!-- Results -->
+      <div class="results-col">
+        <div class="results-toolbar">
+          <div class="results-meta" id="resultsMeta">
+            พบ <strong id="resultCount">0</strong> รายการ
+            <span id="searchTermLabel"></span>
+          </div>
+          <div class="toolbar-right">
+            <select class="sort-select" id="sortSelect">
+              <option value="relevance">เรียงตาม: ตรงกับคำค้นที่สุด</option>
+              <option value="date_desc">วันที่ ล่าสุด → เก่าสุด</option>
+              <option value="date_asc">วันที่ เก่าสุด → ล่าสุด</option>
+              <option value="title">ตามชื่อเรื่อง (ก–ฮ)</option>
+            </select>
+            <div class="view-toggle">
+              <button class="active" aria-label="มุมมองรายการ" title="รายการ">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              </button>
+              <button aria-label="มุมมองตาราง" title="ตาราง">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="resultsList" class="result-list"></div>
+
+        <div class="pagination" id="pagination"></div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="brand">
+          <div class="brand-seal">ปท</div>
+          <div class="brand-text">
+            <div class="small">Prathadnan</div>
+            <div class="big">อบต.ประทัดนั้น</div>
+          </div>
+        </div>
+        <p>องค์การบริหารส่วนตำบลประทัดนั้น มุ่งมั่นพัฒนาท้องถิ่น สร้างคุณภาพชีวิตที่ดีให้กับประชาชน ด้วยการบริหารงานที่โปร่งใส มีประสิทธิภาพ และตอบสนองความต้องการของชุมชน</p>
+      </div>
+      <div>
+        <h4>เกี่ยวกับเรา</h4>
+        <ul>
+          <li><a href="#">วิสัยทัศน์ พันธกิจ</a></li>
+          <li><a href="#">โครงสร้างองค์กร</a></li>
+          <li><a href="#">บุคลากร</a></li>
+          <li><a href="#">อำนาจหน้าที่</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>บริการ</h4>
+        <ul>
+          <li><a href="#">ขออนุญาตออนไลน์</a></li>
+          <li><a href="#">ชำระภาษี</a></li>
+          <li><a href="#">ร้องเรียน/ร้องทุกข์</a></li>
+          <li><a href="#">ดาวน์โหลดเอกสาร</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ติดต่อ</h4>
+        <ul>
+          <li>โทร. 0-2123-4567</li>
+          <li>โทรสาร. 0-2123-4568</li>
+          <li>info@prathadnan.go.th</li>
+          <li><a href="#">แผนที่ตั้งสำนักงาน</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2568 องค์การบริหารส่วนตำบลประทัดนั้น สงวนลิขสิทธิ์</span>
+      <span>นโยบายความเป็นส่วนตัว · เงื่อนไขการใช้งาน</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ Mock data ============ */
+const CATEGORIES = [
+  { id:'news',     label:'ข่าวประชาสัมพันธ์', count:0 },
+  { id:'procure',  label:'จัดซื้อจัดจ้าง',     count:0 },
+  { id:'announce', label:'ประกาศ/คำสั่ง',      count:0 },
+  { id:'activity', label:'กิจกรรม',            count:0 },
+  { id:'document', label:'เอกสารดาวน์โหลด',     count:0 },
+  { id:'budget',   label:'งบประมาณ/แผนงาน',     count:0 },
+];
+
+const ICONS = {
+  news:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>',
+  procure:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.27 6.96 8.73 5.05 8.73-5.05M12 22.08V12"/></svg>',
+  announce: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>',
+  activity: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  document: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>',
+  budget:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+};
+
+const CAT_LABEL = Object.fromEntries(CATEGORIES.map(c => [c.id, c.label]));
+
+const DATA = [
+  { id:1,  cat:'procure',  title:'ประกาศประกวดราคาจ้างก่อสร้างถนนคอนกรีตเสริมเหล็ก สายหมู่ที่ 4 ด้วยวิธีประกวดราคาอิเล็กทรอนิกส์ (e-bidding)', excerpt:'ตามพระราชบัญญัติการจัดซื้อจัดจ้างและการบริหารพัสดุภาครัฐ พ.ศ. 2560 องค์การบริหารส่วนตำบลประทัดนั้น มีความประสงค์จะประกวดราคาจ้างก่อสร้างถนน...', date:'2568-04-22', author:'กองคลัง', filetype:'pdf', views:842 },
+  { id:2,  cat:'news',     title:'อบต.ประทัดนั้น มอบเบี้ยยังชีพผู้สูงอายุประจำเดือนเมษายน 2568', excerpt:'นายกองค์การบริหารส่วนตำบลประทัดนั้น พร้อมด้วยคณะผู้บริหาร ลงพื้นที่มอบเบี้ยยังชีพผู้สูงอายุและผู้พิการประจำเดือนเมษายน 2568 ให้กับพี่น้องประชาชน...', date:'2568-04-18', author:'ฝ่ายประชาสัมพันธ์', filetype:'page', views:512 },
+  { id:3,  cat:'budget',   title:'รายงานผลการดำเนินงานตามแผนพัฒนาท้องถิ่น (พ.ศ. 2566–2570) ประจำปีงบประมาณ 2568', excerpt:'รายงานสรุปผลการดำเนินงานในรอบ 6 เดือนแรกของปีงบประมาณ 2568 ตามแผนพัฒนาท้องถิ่นห้าปี รวมโครงการและกิจกรรมทั้งสิ้น 47 โครงการ...', date:'2568-04-10', author:'งานยุทธศาสตร์', filetype:'pdf', views:329 },
+  { id:4,  cat:'announce', title:'ประกาศการชำระภาษีที่ดินและสิ่งปลูกสร้าง ประจำปี 2568', excerpt:'อาศัยอำนาจตามพระราชบัญญัติภาษีที่ดินและสิ่งปลูกสร้าง พ.ศ. 2562 ประกาศให้เจ้าของที่ดินและสิ่งปลูกสร้างในเขต อบต.ประทัดนั้น ชำระภาษีภายในวันที่ 30 มิถุนายน 2568...', date:'2568-04-05', author:'งานพัฒนารายได้', filetype:'pdf', views:1204 },
+  { id:5,  cat:'activity', title:'โครงการสืบสานประเพณีสงกรานต์ รดน้ำดำหัวผู้สูงอายุ ประจำปี 2568', excerpt:'อบต.ประทัดนั้น ร่วมกับชุมชนจัดกิจกรรมสืบสานประเพณีสงกรานต์ รดน้ำดำหัวผู้สูงอายุในตำบล มีผู้เข้าร่วมกว่า 350 คน บรรยากาศเต็มไปด้วยความอบอุ่น...', date:'2568-04-13', author:'กองสวัสดิการสังคม', filetype:'page', views:687 },
+  { id:6,  cat:'document', title:'แบบฟอร์มคำร้องขออนุญาตก่อสร้างอาคาร (แบบ ข.1)', excerpt:'แบบฟอร์มมาตรฐานสำหรับยื่นคำร้องขออนุญาตก่อสร้าง ดัดแปลง รื้อถอน หรือเคลื่อนย้ายอาคารตามพระราชบัญญัติควบคุมอาคาร พ.ศ. 2522...', date:'2568-03-28', author:'กองช่าง', filetype:'doc', views:2156 },
+  { id:7,  cat:'procure',  title:'ประกาศผู้ชนะการเสนอราคาจัดซื้อครุภัณฑ์สำนักงาน โดยวิธีเฉพาะเจาะจง', excerpt:'ตามที่องค์การบริหารส่วนตำบลประทัดนั้น ได้ดำเนินการจัดซื้อครุภัณฑ์สำนักงานสำหรับใช้ในการปฏิบัติงาน โดยวิธีเฉพาะเจาะจง...', date:'2568-03-25', author:'งานพัสดุ', filetype:'pdf', views:418 },
+  { id:8,  cat:'news',     title:'การประชุมประชาคมท้องถิ่นเพื่อจัดทำแผนพัฒนา ประจำปี 2569', excerpt:'อบต.ประทัดนั้น เปิดเวทีประชาคมท้องถิ่นรับฟังความคิดเห็นและข้อเสนอแนะจากประชาชน เพื่อนำมาประกอบการจัดทำแผนพัฒนาท้องถิ่น...', date:'2568-03-20', author:'งานยุทธศาสตร์', filetype:'page', views:391 },
+  { id:9,  cat:'announce', title:'คำสั่งแต่งตั้งคณะกรรมการตรวจสอบข้อเท็จจริง', excerpt:'ตามคำสั่งองค์การบริหารส่วนตำบลประทัดนั้น ที่ 045/2568 เรื่อง แต่งตั้งคณะกรรมการตรวจสอบข้อเท็จจริง...', date:'2568-03-15', author:'สำนักปลัด', filetype:'pdf', views:267 },
+  { id:10, cat:'activity', title:'กิจกรรม Big Cleaning Day พัฒนาแหล่งน้ำชุมชน', excerpt:'อบต.ประทัดนั้น ร่วมกับจิตอาสาในพื้นที่ จัดกิจกรรม Big Cleaning Day ทำความสะอาด ปรับปรุงภูมิทัศน์ริมคลองและแหล่งน้ำสาธารณะ...', date:'2568-03-10', author:'กองสาธารณสุข', filetype:'page', views:445 },
+  { id:11, cat:'budget',   title:'รายงานงบการเงินประจำเดือน มีนาคม 2568', excerpt:'งบการเงินรายเดือน ประกอบด้วย งบรายรับ-รายจ่าย งบทดลอง รายงานเงินสด เงินฝากธนาคาร และเงินฝากกระทรวงการคลัง...', date:'2568-04-08', author:'กองคลัง', filetype:'pdf', views:198 },
+  { id:12, cat:'document', title:'คู่มือสำหรับประชาชน: การรับเรื่องร้องเรียน/ร้องทุกข์', excerpt:'คู่มือฉบับสมบูรณ์ครอบคลุมขั้นตอน ระยะเวลา เอกสารหลักฐาน และช่องทางการยื่นเรื่องร้องเรียน/ร้องทุกข์...', date:'2568-02-28', author:'สำนักปลัด', filetype:'pdf', views:923 },
+  { id:13, cat:'procure',  title:'แผนการจัดซื้อจัดจ้างประจำปีงบประมาณ พ.ศ. 2568 (แก้ไขเพิ่มเติม ครั้งที่ 2)', excerpt:'ประกาศแผนการจัดซื้อจัดจ้างประจำปีงบประมาณ พ.ศ. 2568 ฉบับแก้ไขเพิ่มเติม ครั้งที่ 2 ตามระเบียบกระทรวงการคลัง...', date:'2568-02-20', author:'งานพัสดุ', filetype:'pdf', views:556 },
+  { id:14, cat:'news',     title:'ประชาสัมพันธ์การฉีดวัคซีนป้องกันโรคพิษสุนัขบ้า ฟรี!', excerpt:'อบต.ประทัดนั้น ร่วมกับปศุสัตว์อำเภอ จัดบริการฉีดวัคซีนป้องกันโรคพิษสุนัขบ้าให้กับสุนัขและแมว ฟรี ระหว่างวันที่ 15–30 เมษายน 2568...', date:'2568-04-15', author:'กองสาธารณสุข', filetype:'page', views:1567 },
+  { id:15, cat:'announce', title:'ประกาศรายชื่อผู้มีสิทธิรับเงินอุดหนุนเพื่อการเลี้ยงดูเด็กแรกเกิด', excerpt:'ตามที่ อบต.ประทัดนั้น ได้รับการขึ้นทะเบียนผู้มีสิทธิรับเงินอุดหนุนเพื่อการเลี้ยงดูเด็กแรกเกิด ประกาศรายชื่อผู้มีสิทธิ...', date:'2568-04-02', author:'กองสวัสดิการสังคม', filetype:'pdf', views:734 },
+  { id:16, cat:'activity', title:'อบรมโครงการป้องกันและแก้ไขปัญหายาเสพติด ในเยาวชน', excerpt:'จัดอบรมเชิงปฏิบัติการสำหรับเยาวชนและผู้นำชุมชน เพื่อสร้างภูมิคุ้มกันและป้องกันปัญหายาเสพติด...', date:'2568-03-05', author:'กองการศึกษา', filetype:'page', views:312 },
+  { id:17, cat:'budget',   title:'ข้อบัญญัติงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. 2568', excerpt:'ข้อบัญญัติองค์การบริหารส่วนตำบลประทัดนั้น เรื่อง งบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. 2568 รายละเอียดงบประมาณรวม 78,500,000 บาท...', date:'2567-09-25', author:'กองคลัง', filetype:'pdf', views:1843 },
+  { id:18, cat:'document', title:'แบบฟอร์มขอรับเบี้ยยังชีพผู้สูงอายุและผู้พิการ', excerpt:'แบบฟอร์มและเอกสารประกอบสำหรับยื่นคำร้องขอรับเบี้ยยังชีพผู้สูงอายุ ผู้พิการ และผู้ป่วยเอดส์...', date:'2568-01-15', author:'กองสวัสดิการสังคม', filetype:'doc', views:2945 },
+];
+
+/* ============ State ============ */
+const state = {
+  q: '',
+  scope: 'all',
+  cats: new Set(),
+  filetypes: new Set(),
+  dateRange: 'any',
+  dateFrom: '', dateTo: '',
+  sort: 'relevance',
+  page: 1,
+  perPage: 6,
+};
+
+/* ============ Helpers ============ */
+const $ = (s, p=document) => p.querySelector(s);
+const $$ = (s, p=document) => [...p.querySelectorAll(s)];
+
+function thaiDate(iso){
+  // iso e.g. '2568-04-22' (already BE)
+  const [y,m,d] = iso.split('-').map(Number);
+  const months = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  return `${d} ${months[m-1]} ${y}`;
+}
+
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
+function highlight(text, q){
+  if (!q) return escapeHtml(text);
+  const parts = q.trim().split(/\s+/).filter(Boolean).map(p => p.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));
+  if (!parts.length) return escapeHtml(text);
+  const re = new RegExp(`(${parts.join('|')})`, 'gi');
+  return escapeHtml(text).replace(re, '<mark class="hl">$1</mark>');
+}
+
+function diffDays(iso){
+  const [y,m,d] = iso.split('-').map(Number);
+  const docDate = new Date(y - 543, m-1, d); // BE -> CE
+  const now = new Date();
+  return Math.floor((now - docDate) / (1000*60*60*24));
+}
+
+/* ============ Filtering & sorting ============ */
+function filtered(){
+  const q = state.q.trim().toLowerCase();
+  let list = DATA.filter(item => {
+    if (state.scope !== 'all' && item.cat !== state.scope) return false;
+    if (state.cats.size && !state.cats.has(item.cat)) return false;
+    if (state.filetypes.size && !state.filetypes.has(item.filetype)) return false;
+
+    if (state.dateRange !== 'any') {
+      if (state.dateRange === 'custom') {
+        // custom range: dateFrom / dateTo are calendar dates in CE
+        if (state.dateFrom || state.dateTo) {
+          const [y,m,d] = item.date.split('-').map(Number);
+          const docCE = new Date(y - 543, m-1, d);
+          if (state.dateFrom && docCE < new Date(state.dateFrom)) return false;
+          if (state.dateTo) {
+            const to = new Date(state.dateTo); to.setHours(23,59,59);
+            if (docCE > to) return false;
+          }
+        }
+      } else {
+        const days = parseInt(state.dateRange,10);
+        if (diffDays(item.date) > days) return false;
+      }
+    }
+
+    if (q) {
+      const blob = (item.title + ' ' + item.excerpt + ' ' + item.author).toLowerCase();
+      // every space-separated token must be present somewhere
+      const tokens = q.split(/\s+/).filter(Boolean);
+      if (!tokens.every(t => blob.includes(t))) return false;
+    }
+    return true;
+  });
+
+  // sort
+  switch (state.sort){
+    case 'date_desc': list.sort((a,b)=>b.date.localeCompare(a.date)); break;
+    case 'date_asc':  list.sort((a,b)=>a.date.localeCompare(b.date)); break;
+    case 'title':     list.sort((a,b)=>a.title.localeCompare(b.title,'th')); break;
+    default: /* relevance: keep original order, weighted by title hit */
+      if (q){
+        list.sort((a,b)=>{
+          const aHit = a.title.toLowerCase().includes(q) ? 1 : 0;
+          const bHit = b.title.toLowerCase().includes(q) ? 1 : 0;
+          return bHit - aHit;
+        });
+      }
+  }
+  return list;
+}
+
+/* ============ Render ============ */
+function renderCategoryFilter(){
+  const counts = {};
+  CATEGORIES.forEach(c => counts[c.id] = 0);
+  DATA.forEach(d => { if (counts[d.cat] !== undefined) counts[d.cat]++; });
+
+  const ul = $('#categoryFilter');
+  ul.innerHTML = CATEGORIES.map(c => `
+    <li><label>
+      <input type="checkbox" value="${c.id}" ${state.cats.has(c.id)?'checked':''}>
+      ${c.label}
+      <span class="count">${counts[c.id]}</span>
+    </label></li>
+  `).join('');
+
+  $$('#categoryFilter input').forEach(cb => {
+    cb.addEventListener('change', () => {
+      if (cb.checked) state.cats.add(cb.value); else state.cats.delete(cb.value);
+      state.page = 1;
+      render();
+    });
+  });
+}
+
+function renderResults(){
+  const list = filtered();
+  const total = list.length;
+  const start = (state.page-1) * state.perPage;
+  const pageItems = list.slice(start, start + state.perPage);
+
+  // meta
+  $('#resultCount').textContent = total.toLocaleString('th-TH');
+  const term = state.q.trim();
+  $('#searchTermLabel').innerHTML = term
+    ? ` สำหรับ <span class="term">“${escapeHtml(term)}”</span>`
+    : '';
+
+  const container = $('#resultsList');
+
+  if (!total){
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        <h3>ไม่พบผลลัพธ์ที่ตรงกับเงื่อนไข</h3>
+        <p>ลองปรับคำค้นหาให้กว้างขึ้น หรือล้างตัวกรองบางส่วน เพื่อดูผลลัพธ์เพิ่มเติม</p>
+        <button class="clear-btn" onclick="clearAll()">ล้างเงื่อนไขการค้นหา</button>
+      </div>`;
+    $('#pagination').innerHTML = '';
+    return;
+  }
+
+  container.innerHTML = pageItems.map(item => `
+    <article class="result-card cat-${item.cat}">
+      <div class="result-icon">${ICONS[item.cat] || ICONS.document}</div>
+      <div class="result-body">
+        <span class="result-cat">${CAT_LABEL[item.cat]}</span>
+        <h2 class="result-title"><a href="#">${highlight(item.title, state.q)}</a></h2>
+        <p class="result-excerpt">${highlight(item.excerpt, state.q)}</p>
+        <div class="result-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>${thaiDate(item.date)}</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${item.author}</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>เข้าชม ${item.views.toLocaleString('th-TH')} ครั้ง</span>
+          <span style="text-transform:uppercase;font-weight:600;color:var(--c-primary)">${item.filetype}</span>
+        </div>
+      </div>
+      <div class="result-actions">
+        <button class="icon-btn" title="บันทึก">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+    </article>
+  `).join('');
+
+  renderPagination(total);
+}
+
+function renderPagination(total){
+  const totalPages = Math.ceil(total / state.perPage);
+  if (totalPages <= 1) { $('#pagination').innerHTML = ''; return; }
+
+  const cur = state.page;
+  let html = '';
+  html += `<button ${cur===1?'disabled':''} onclick="goPage(${cur-1})">‹ ก่อนหน้า</button>`;
+
+  const pages = new Set([1, totalPages, cur, cur-1, cur+1]);
+  let last = 0;
+  [...pages].filter(p => p>=1 && p<=totalPages).sort((a,b)=>a-b).forEach(p => {
+    if (p - last > 1) html += `<span class="ellipsis">…</span>`;
+    html += `<button class="${p===cur?'active':''}" onclick="goPage(${p})">${p}</button>`;
+    last = p;
+  });
+
+  html += `<button ${cur===totalPages?'disabled':''} onclick="goPage(${cur+1})">ถัดไป ›</button>`;
+  $('#pagination').innerHTML = html;
+}
+
+window.goPage = function(p){
+  state.page = p;
+  renderResults();
+  window.scrollTo({ top: $('.results-section').offsetTop - 80, behavior:'smooth' });
+};
+
+window.clearAll = function(){
+  state.q = '';
+  state.scope = 'all';
+  state.cats.clear();
+  state.filetypes.clear();
+  state.dateRange = 'any';
+  state.dateFrom = ''; state.dateTo = '';
+  state.page = 1;
+  $('#searchInput').value = '';
+  $('#scopeSelect').value = 'all';
+  $$('#dateRangeFilter input').forEach(r => r.checked = r.value === 'any');
+  $('#customDateRow').style.display = 'none';
+  $$('#filetypeFilter input').forEach(c => c.checked = false);
+  renderCategoryFilter();
+  render();
+};
+
+function render(){
+  renderResults();
+}
+
+/* ============ Wire up ============ */
+function init(){
+  // today
+  const now = new Date();
+  const months = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+  $('#todayDate').textContent = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()+543}`;
+
+  renderCategoryFilter();
+
+  $('#searchForm').addEventListener('submit', e => {
+    e.preventDefault();
+    state.q = $('#searchInput').value;
+    state.page = 1;
+    render();
+  });
+
+  // live search (debounced)
+  let t;
+  $('#searchInput').addEventListener('input', e => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      state.q = e.target.value;
+      state.page = 1;
+      render();
+    }, 220);
+  });
+
+  $('#scopeSelect').addEventListener('change', e => {
+    state.scope = e.target.value;
+    state.page = 1;
+    render();
+  });
+
+  $('#sortSelect').addEventListener('change', e => {
+    state.sort = e.target.value;
+    state.page = 1;
+    render();
+  });
+
+  $$('#dateRangeFilter input').forEach(r => {
+    r.addEventListener('change', () => {
+      state.dateRange = r.value;
+      $('#customDateRow').style.display = r.value === 'custom' ? 'grid' : 'none';
+      state.page = 1;
+      render();
+    });
+  });
+
+  $('#dateFrom').addEventListener('change', e => { state.dateFrom = e.target.value; state.page=1; render(); });
+  $('#dateTo').addEventListener('change',   e => { state.dateTo   = e.target.value; state.page=1; render(); });
+
+  $$('#filetypeFilter input').forEach(cb => {
+    cb.addEventListener('change', () => {
+      if (cb.checked) state.filetypes.add(cb.value); else state.filetypes.delete(cb.value);
+      state.page = 1;
+      render();
+    });
+  });
+
+  $$('.chip').forEach(c => c.addEventListener('click', () => {
+    const v = c.dataset.quick;
+    $('#searchInput').value = v;
+    state.q = v;
+    state.page = 1;
+    render();
+  }));
+
+  $('#resetBtn').addEventListener('click', clearAll);
+
+  // view toggle (cosmetic)
+  $$('.view-toggle button').forEach(b => b.addEventListener('click', () => {
+    $$('.view-toggle button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+  }));
+
+  render();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+
+</body>
+</html>
